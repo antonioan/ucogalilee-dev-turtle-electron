@@ -10,7 +10,8 @@
     "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anotonio Abu Nassar <antonioabunassar@gmail.com>",
+  "contributors": ["Thomas Hashem"],
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.65",
