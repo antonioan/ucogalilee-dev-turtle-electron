@@ -24,20 +24,7 @@ const menuItems = [
                     });
                     win2.once('ready-to-show', () => win2.show());
                     win2.webContents.openDevTools();
-                    await win2.loadFile('camera.html');
-                }
-            },
-            {
-                label: 'New Window',
-                click: async () => {
-                    const win2 = new BrowserWindow({
-                        height: 300,
-                        width: 400,
-                        show: false,
-                        backgroundColor: '#2e2d29',
-                    });
-                    win2.once('ready-to-show', () => win2.show());
-                    await win2.loadFile('index2.html');
+                    await win2.loadFile('src/camera/camera.html');
                 }
             },
             {
@@ -75,11 +62,11 @@ const createWindow = () => {
         height: 500,
         width: 800,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'src/preload.js')
         },
     });
 
-    win.loadFile('index.html');
+    win.loadFile('src/index/index.html');
 }
 
 app.whenReady().then(() => {
