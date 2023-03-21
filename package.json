@@ -1,54 +1,66 @@
 {
-  "name": "ucogalilee-dev-turtle-electron",
-  "version": "1.0.0",
+  "name": "turtle",
+  "version": "0.1.0",
   "description": "",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
   "keywords": [],
   "author": "Anotonio Abu Nassar <antonioabunassar@gmail.com>",
-  "contributors": ["Thomas Hashem"],
+  "contributors": [
+    "Thomas Hashem"
+  ],
   "license": "ISC",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nf start -p 3000",
+    "build": "craco build",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/electron-wait-react",
+    "react-start": "craco start",
+    "pack": "electron-builder",
+    "build-and-pack": "npm run build && npm run pack"
+  },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.65",
-    "@electron-forge/maker-deb": "^6.0.0-beta.65",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
-    "@electron-forge/maker-zip": "^6.0.0-beta.65",
-    "electron": "^20.3.12"
+    "electron": "^20.3.12",
+    "electron-builder": "^23.0.2",
+    "foreman": "^3.0.1",
+    "react-scripts": "^5.0.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "@craco/craco": "^5.9.0",
+    "bootstrap": "^5.1.1",
+    "electron-better-ipc": "^2.0.1",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "ipc": "^0.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2",
+    "react-split": "^2.0.14"
   },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "ucogalilee_dev_turtle_electron"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
+  "build": {
+    "appId": "com.ucogalilee.turtle",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
